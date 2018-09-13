@@ -1,37 +1,49 @@
+//import { connect } from 'react-redux';
 import React, { Component } from 'react';
-
-import axios from 'axios';
+import Helper from '../../JS/Funcoes.Gerais';
 
 class FormCategoria extends Component {
     constructor(props){
         super(props);
 
         this.handlerSubmit = this.handlerSubmit.bind(this);
-        this.changetxtTipo = this.changetxtTipo.bind(this);
+        this.changetxtCategoria = this.changetxtCategoria.bind(this);
     }
 
-    changetxtTipo(event){
+    changetxtCategoria(event){
         this.setState({
             categoria : {
                 nome_categoria: event.target.value,
                 operacao: 1
             }
         })
+        
     }
 
     handlerSubmit(event){
         event.preventDefault();
 
+        console.log(Helper);
+        /*
         var categoria = {
-            nome_categoria: event.target.value,
-            operacao: 1
+            nome_categoria: "teste", operacao: 1
         }
         
-        axios.post(`http://localhost:37995/api/cadastro/gravarCategoria`, this.state.categoria)
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
+        fetch("http://localhost:37995/api/cadastro/gravarCategoria", {
+            method: 'POST',
+            headers: new Headers({
+                    'Content-Type': 'application/x-www-form-urlencoded', // <-- Specifying the Content-Type
+              }),
+            body: "nome_categoria=fsdfdsfsf&operacao=another"
+          })
+          .then((response) => response.text())
+          .then((responseText) => {
+            alert(responseText);
+          })
+          .catch((error) => {
+              console.error(error);
         });
+        */
     }
 
 
@@ -46,7 +58,7 @@ class FormCategoria extends Component {
                             <div class="row">
                                 <div class="form-group col-xs-12">
                                     <label for="firstname">Categoria</label>
-                                    <input id="txtTipo" class="form-control input-group-lg" type="text" name="txtTipo" title="Enter first name" onChange={this.changetxtTipo}/>
+                                    <input id="txtCategoria" class="form-control input-group-lg" type="text" name="txtCategoria" title="Enter first name" onChange={this.changetxtCategoria}/>
                                 </div>
                             </div>
                             <div class="row">
