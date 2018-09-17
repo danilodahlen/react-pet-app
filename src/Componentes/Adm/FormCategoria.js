@@ -1,6 +1,6 @@
 //import { connect } from 'react-redux';
-import React, { Component } from 'react';
-import Helper from '../../JS/Funcoes.Gerais';
+import React, { Component } from 'react';   
+import { f_parametrizaPost } from '../../JS/Funcoes.Gerais';
 
 class FormCategoria extends Component {
     constructor(props){
@@ -22,19 +22,17 @@ class FormCategoria extends Component {
 
     handlerSubmit(event){
         event.preventDefault();
-
-        console.log(Helper);
-        /*
-        var categoria = {
-            nome_categoria: "teste", operacao: 1
-        }
         
+        var categoria = {
+            nome_categoria: "lfksnfsklfns", operacao: 1
+        }
+
         fetch("http://localhost:37995/api/cadastro/gravarCategoria", {
             method: 'POST',
             headers: new Headers({
                     'Content-Type': 'application/x-www-form-urlencoded', // <-- Specifying the Content-Type
               }),
-            body: "nome_categoria=fsdfdsfsf&operacao=another"
+            body: f_parametrizaPost(categoria)
           })
           .then((response) => response.text())
           .then((responseText) => {
@@ -43,7 +41,6 @@ class FormCategoria extends Component {
           .catch((error) => {
               console.error(error);
         });
-        */
     }
 
 
